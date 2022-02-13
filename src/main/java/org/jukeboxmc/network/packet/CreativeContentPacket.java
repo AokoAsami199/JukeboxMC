@@ -25,12 +25,12 @@ public class CreativeContentPacket extends Packet {
 
     @Override
     public void write( BinaryStream stream ) {
-        super.write(stream);
-        stream.writeUnsignedVarInt( BedrockResourceLoader.getCreativeItems().size() );
+        super.write( stream );
+        stream.writeUnsignedVarInt( BedrockResourceLoader.getCreativeItemsByProtocol( this.protocolVersion ).size() );
 
         int i = 0;
-        for ( Map<String, Object> stringObjectMap : BedrockResourceLoader.getCreativeItems() ) {
-            int id = BedrockResourceLoader.getItemIdByName().get( (String) stringObjectMap.get( "id" ) );
+        for ( Map<String, Object> stringObjectMap : BedrockResourceLoader.getCreativeItemsByProtocol( this.protocolVersion ) ) {
+            int id = BedrockResourceLoader.getItemIdByNameByProtocol( this.protocolVersion ).get( (String) stringObjectMap.get( "id" ) );
             int damage = (int) (double) stringObjectMap.getOrDefault( "damage", 0D );
             int blockRuntimeId = (int) (double) stringObjectMap.getOrDefault( "blockRuntimeId", 0D );
             stream.writeUnsignedVarInt( i++ );

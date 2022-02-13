@@ -70,7 +70,7 @@ public class Player extends EntityHuman implements InventoryHolder, CommandSende
     private final StoneCutterInventory stoneCutterInventory;
     private final GrindstoneInventory grindstoneInventory;
 
-    private int protocol = Protocol.CURRENT_PROTOCOL;
+    private int protocol;
     private int viewDistance = 8;
     private int inAirTicks = 0;
 
@@ -989,6 +989,9 @@ public class Player extends EntityHuman implements InventoryHolder, CommandSende
         if ( packetSendEvent.isCancelled() ) {
             return;
         }
+
+        packet.setProtocolVersion( this.protocol );
+
         this.playerConnection.sendPacket( packetSendEvent.getPacket(), direct );
     }
 

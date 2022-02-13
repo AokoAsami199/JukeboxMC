@@ -20,7 +20,7 @@ public class BiomeDefinitionListPacket extends Packet {
 
     @Override
     public void write( BinaryStream stream ) {
-        super.write(stream);
-        stream.writeBytes( BedrockResourceLoader.getBiomeDefinitions() );
+        super.write( stream );
+        stream.writeBytes( BedrockResourceLoader.getBiomeDefinitionsByProtocol( this.protocolVersion ) );
     }
 }

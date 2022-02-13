@@ -32,11 +32,11 @@ public class LoginHandler implements PacketHandler<LoginPacket> {
         PlayStatusPacket playStatusPacket = new PlayStatusPacket();
         PlayStatus status = PlayStatus.LOGIN_SUCCESS;
 
-        if ( packet.getProtocol() < Protocol.CURRENT_PROTOCOL ) {
+        if ( packet.getProtocol() < Protocol.OLDEST_PROTOCOL ) {
             status = PlayStatus.LOGIN_FAILED_CLIENT_OUTDATED;
         }
 
-        if ( packet.getProtocol() > Protocol.CURRENT_PROTOCOL ) {
+        if ( packet.getProtocol() > Protocol.LATEST_PROTOCOL ) {
             status = PlayStatus.LOGIN_FAILED_SERVER_OUTDATED;
         }
 

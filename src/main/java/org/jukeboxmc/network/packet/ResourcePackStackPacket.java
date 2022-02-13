@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import org.jukeboxmc.Server;
 import org.jukeboxmc.resourcepack.ResourcePack;
 import org.jukeboxmc.utils.BinaryStream;
+import org.jukeboxmc.utils.MultiProtocolUtil;
 
 import java.util.Collection;
 
@@ -41,7 +42,7 @@ public class ResourcePackStackPacket extends Packet {
             stream.writeString( "" );
         }
 
-        stream.writeString( Protocol.MINECRAFT_VERSION );
+        MultiProtocolUtil.getMinecraftVersionByProtocol( this.protocolVersion ).ifPresent( stream::writeString );
         // length of experimental data
         stream.writeInt( 0 );
 

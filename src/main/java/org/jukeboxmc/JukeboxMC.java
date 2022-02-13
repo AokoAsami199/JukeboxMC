@@ -22,7 +22,7 @@ public class JukeboxMC {
         ResourceLeakDetector.setLevel( ResourceLeakDetector.Level.DISABLED );
         this.logger = new Logger();
 
-        this.logger.info( "Starting JukeboxMC (Bedrock Edition " + Protocol.MINECRAFT_VERSION + " with Protocol " + Protocol.CURRENT_PROTOCOL + ")" );
+        this.logger.info( "Starting JukeboxMC (Bedrock Edition " + Protocol.LATEST_MINECRAFT_VERSION + " with Protocol " + Protocol.LATEST_PROTOCOL + ")" );
         this.server = new Server( this.logger );
     }
 

@@ -5,8 +5,10 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import org.jukeboxmc.Server;
 import org.jukeboxmc.network.packet.Packet;
+import org.jukeboxmc.player.Player;
 import org.jukeboxmc.utils.BinaryStream;
 
+import java.net.InetSocketAddress;
 import java.util.List;
 
 /**
@@ -37,10 +39,16 @@ public class ProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
 
         Packet packet = this.server.getPacketRegistry().getPacket( packetId );
         if ( packet != null ) {
+            final Player player = this.server.getPlayer( (InetSocketAddress) ctx.channel().remoteAddress() );
+
+            if ( player != null ) {
+                packet.setProtocolVersion( player.getProtocol() );
+            }
+
             packet.read( binaryStream );
             out.add( packet );
         } else {
-           // this.server.getLogger().info( "Packet with the id " + packetId + " is missing!" );
+            // this.server.getLogger().info( "Packet with the id " + packetId + " is missing!" );
         }
     }
 }

@@ -1,13 +1,29 @@
 package org.jukeboxmc.network.packet;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
 public interface Protocol {
 
-    int CURRENT_PROTOCOL = 486;
-    String MINECRAFT_VERSION = "1.18.10";
+    int V1_18_0 = 475;
+    int V1_18_10 = 486;
+    int LATEST_PROTOCOL = Protocol.V1_18_10;
+    int OLDEST_PROTOCOL = Protocol.V1_18_0;
+
+    String MINECRAFT_VERSION_v1_18_0 = "1.18.0";
+    String MINECRAFT_VERSION_v1_18_10 = "1.18.10";
+    String LATEST_MINECRAFT_VERSION = Protocol.MINECRAFT_VERSION_v1_18_10;
+
+    Map<Integer, String> SUPPORTED_PROTOCOL_VERSIONS = new HashMap<Integer, String>() {
+        {
+            this.put( Protocol.V1_18_0, Protocol.MINECRAFT_VERSION_v1_18_0 );
+            this.put( Protocol.V1_18_10, Protocol.MINECRAFT_VERSION_v1_18_10 );
+        }
+    };
 
     int BATCH_PACKET = 0xfe;
     byte LOGIN_PACKET = 0x01;

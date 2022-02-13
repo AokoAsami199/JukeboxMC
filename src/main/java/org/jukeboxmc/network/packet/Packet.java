@@ -8,6 +8,8 @@ import org.jukeboxmc.utils.BinaryStream;
  */
 public abstract class Packet {
 
+    protected int protocolVersion;
+
     public abstract int getPacketId();
 
     public void read( BinaryStream stream ) {
@@ -16,5 +18,9 @@ public abstract class Packet {
 
     public void write( BinaryStream stream ) {
         stream.writeUnsignedVarInt( this.getPacketId() );
+    }
+
+    public void setProtocolVersion( int protocolVersion ) {
+        this.protocolVersion = protocolVersion;
     }
 }

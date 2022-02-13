@@ -63,8 +63,8 @@ public class ServerInfo {
         final StringJoiner stringJoiner = new StringJoiner( ";" );
         stringJoiner.add( "MCPE" );
         stringJoiner.add( this.motd );
-        stringJoiner.add( Integer.toString( Protocol.CURRENT_PROTOCOL ) );
-        stringJoiner.add( Protocol.MINECRAFT_VERSION );
+        stringJoiner.add( Integer.toString( Protocol.LATEST_PROTOCOL ) );
+        stringJoiner.add( Protocol.LATEST_MINECRAFT_VERSION );
         stringJoiner.add( Integer.toString( Server.getInstance().getOnlinePlayers().size() ) );
         stringJoiner.add( Integer.toString( this.maxPlayers ) );
         stringJoiner.add( Long.toString( this.serverId ) );

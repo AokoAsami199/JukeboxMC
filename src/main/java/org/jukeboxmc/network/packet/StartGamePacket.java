@@ -6,6 +6,7 @@ import org.jukeboxmc.math.Vector;
 import org.jukeboxmc.player.GameMode;
 import org.jukeboxmc.utils.BedrockResourceLoader;
 import org.jukeboxmc.utils.BinaryStream;
+import org.jukeboxmc.utils.MultiProtocolUtil;
 import org.jukeboxmc.world.Difficulty;
 import org.jukeboxmc.world.GameRule;
 
@@ -110,7 +111,7 @@ public class StartGamePacket extends Packet {
         stream.writeBoolean( false ); //World template option locked
         stream.writeBoolean( false ); //Only spawn v1 villagers
 
-        stream.writeString( Protocol.MINECRAFT_VERSION );
+        MultiProtocolUtil.getMinecraftVersionByProtocol( this.protocolVersion ).ifPresent( stream::writeString );
         stream.writeInt( 16 ); //Limited world width
         stream.writeInt( 16 ); //Limited world height
         stream.writeBoolean( false ); //Has new nether
@@ -132,7 +133,7 @@ public class StartGamePacket extends Packet {
 
         stream.writeUnsignedVarInt( 0 ); //Custom blocks
 
-        List<Map<String, Object>> itemPalette = BedrockResourceLoader.getItemPalettes();
+        List<Map<String, Object>> itemPalette = BedrockResourceLoader.getItemPalettesByProtocol( this.protocolVersion );
         stream.writeUnsignedVarInt( itemPalette.size() ); //Item palette
         for ( Map<String, Object> item : itemPalette ) {
             stream.writeString( (String) item.get( "name" ) );

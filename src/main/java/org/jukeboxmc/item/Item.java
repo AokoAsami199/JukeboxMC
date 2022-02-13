@@ -15,6 +15,7 @@ import org.jukeboxmc.math.Vector;
 import org.jukeboxmc.nbt.NbtMap;
 import org.jukeboxmc.nbt.NbtMapBuilder;
 import org.jukeboxmc.nbt.NbtType;
+import org.jukeboxmc.network.packet.Protocol;
 import org.jukeboxmc.player.GameMode;
 import org.jukeboxmc.player.Player;
 import org.jukeboxmc.utils.BedrockResourceLoader;
@@ -150,10 +151,10 @@ public class Item implements Cloneable {
     }
 
     public int getRuntimeId() {
-        if ( !BedrockResourceLoader.getItemIdByName().containsKey( this.identifier ) ) {
+        if ( !BedrockResourceLoader.getItemIdByNameByProtocol( Protocol.LATEST_PROTOCOL ).containsKey( this.identifier ) ) {
             return -158;
         }
-        return BedrockResourceLoader.getItemIdByName().get( this.identifier );
+        return BedrockResourceLoader.getItemIdByNameByProtocol( Protocol.LATEST_PROTOCOL ).get( this.identifier );
     }
 
     public int getBlockRuntimeId() {

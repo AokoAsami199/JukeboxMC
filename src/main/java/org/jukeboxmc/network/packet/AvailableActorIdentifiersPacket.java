@@ -17,6 +17,6 @@ public class AvailableActorIdentifiersPacket extends Packet {
     @Override
     public void write( BinaryStream stream ) {
         super.write( stream );
-        stream.writeBytes( BedrockResourceLoader.getEntityIdentifiers() );
+        stream.writeBytes( BedrockResourceLoader.getEntityIdentifiersByProtocol( this.protocolVersion ) );
     }
 }
