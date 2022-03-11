@@ -11,7 +11,7 @@ public class EntityElderGuardian extends EntityLiving {
 
     @Override
     public String getName() {
-        return "ElderGuardian";
+        return "Elder Guardian";
     }
 
     @Override

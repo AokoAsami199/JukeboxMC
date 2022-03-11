@@ -11,7 +11,7 @@ public class EntityWitherSkeleton extends EntityLiving {
 
     @Override
     public String getName() {
-        return "WitherSkeleton";
+        return "Wither Skeleton";
     }
 
     @Override

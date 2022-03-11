@@ -11,7 +11,7 @@ public class EntityMagmaCube extends EntityLiving {
 
     @Override
     public String getName() {
-        return "MagmaCube";
+        return "Magma Cube";
     }
 
     @Override

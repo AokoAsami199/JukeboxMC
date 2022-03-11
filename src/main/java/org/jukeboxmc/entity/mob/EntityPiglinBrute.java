@@ -11,7 +11,7 @@ public class EntityPiglinBrute extends EntityLiving {
 
     @Override
     public String getName() {
-        return "PiglinBrute";
+        return "Piglin Brute";
     }
 
     @Override

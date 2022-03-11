@@ -11,7 +11,7 @@ public class EntityCaveSpider extends EntityLiving {
 
     @Override
     public String getName() {
-        return "CaveSpider";
+        return "Cave Spider";
     }
 
     @Override
