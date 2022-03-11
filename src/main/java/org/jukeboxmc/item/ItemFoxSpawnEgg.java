@@ -1,5 +1,12 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.block.Block;
+import org.jukeboxmc.block.direction.BlockFace;
+import org.jukeboxmc.entity.passive.EntityFox;
+import org.jukeboxmc.math.Location;
+import org.jukeboxmc.math.Vector;
+import org.jukeboxmc.player.Player;
+
 /**
  * @author LucGamesYT
  * @version 1.0
@@ -7,8 +14,17 @@ package org.jukeboxmc.item;
 public class ItemFoxSpawnEgg extends Item {
 
     public ItemFoxSpawnEgg() {
-        super ( "minecraft:fox_spawn_egg" );
+        super( "minecraft:fox_spawn_egg" );
     }
 
+    @Override
+    public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
+        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
 
+        EntityFox entityFox = new EntityFox();
+        entityFox.setLocation( location );
+        entityFox.spawn();
+
+        return true;
+    }
 }

@@ -1,5 +1,12 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.block.Block;
+import org.jukeboxmc.block.direction.BlockFace;
+import org.jukeboxmc.entity.mob.EntityCreeper;
+import org.jukeboxmc.math.Location;
+import org.jukeboxmc.math.Vector;
+import org.jukeboxmc.player.Player;
+
 /**
  * @author LucGamesYT
  * @version 1.0
@@ -7,8 +14,17 @@ package org.jukeboxmc.item;
 public class ItemCreeperSpawnEgg extends Item {
 
     public ItemCreeperSpawnEgg() {
-        super( "minecraft:creeper_spawn_egg");
+        super( "minecraft:creeper_spawn_egg" );
     }
 
+    @Override
+    public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
+        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
 
+        EntityCreeper entityCreeper = new EntityCreeper();
+        entityCreeper.setLocation( location );
+        entityCreeper.spawn();
+
+        return true;
+    }
 }
