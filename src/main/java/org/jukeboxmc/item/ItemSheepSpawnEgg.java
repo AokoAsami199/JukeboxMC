@@ -19,10 +19,10 @@ public class ItemSheepSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntitySheep entitySheep = new EntitySheep();
-        entitySheep.setLocation( location );
+        entitySheep.setLocation( location.add( 0, entitySheep.getEyeHeight(), 0 ) );
         entitySheep.spawn();
 
         return true;

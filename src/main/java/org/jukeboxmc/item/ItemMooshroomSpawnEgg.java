@@ -19,10 +19,10 @@ public class ItemMooshroomSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityMooshroom entityMooshroom = new EntityMooshroom();
-        entityMooshroom.setLocation( location );
+        entityMooshroom.setLocation( location.add( 0, entityMooshroom.getEyeHeight(), 0 ) );
         entityMooshroom.spawn();
 
         return true;

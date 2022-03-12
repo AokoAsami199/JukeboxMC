@@ -19,10 +19,10 @@ public class ItemCreeperSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityCreeper entityCreeper = new EntityCreeper();
-        entityCreeper.setLocation( location );
+        entityCreeper.setLocation( location.add( 0, entityCreeper.getEyeHeight(), 0 ) );
         entityCreeper.spawn();
 
         return true;

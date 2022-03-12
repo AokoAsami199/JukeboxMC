@@ -19,10 +19,10 @@ public class ItemDonkeySpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityDonkey entityDonkey = new EntityDonkey();
-        entityDonkey.setLocation( location );
+        entityDonkey.setLocation( location.add( 0, entityDonkey.getEyeHeight(), 0 ) );
         entityDonkey.spawn();
 
         return true;

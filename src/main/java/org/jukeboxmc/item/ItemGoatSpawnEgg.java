@@ -19,10 +19,10 @@ public class ItemGoatSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityGoat entityGoat = new EntityGoat();
-        entityGoat.setLocation( location );
+        entityGoat.setLocation( location.add( 0, entityGoat.getEyeHeight(), 0 ) );
         entityGoat.spawn();
 
         return true;

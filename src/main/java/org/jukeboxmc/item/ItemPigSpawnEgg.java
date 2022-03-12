@@ -19,12 +19,11 @@ public class ItemPigSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityPig entityPig = new EntityPig();
-        entityPig.setLocation( location );
+        entityPig.setLocation( location.add( 0, entityPig.getEyeHeight(), 0 ) );
         entityPig.spawn();
-
         return true;
     }
 }

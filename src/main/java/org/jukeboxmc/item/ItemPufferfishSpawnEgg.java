@@ -19,10 +19,10 @@ public class ItemPufferfishSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityPufferfish entityPufferfish = new EntityPufferfish();
-        entityPufferfish.setLocation( location );
+        entityPufferfish.setLocation( location.add( 0, entityPufferfish.getEyeHeight(), 0 ) );;
         entityPufferfish.spawn();
 
         return true;

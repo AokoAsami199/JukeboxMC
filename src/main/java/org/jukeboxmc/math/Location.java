@@ -1,5 +1,6 @@
 package org.jukeboxmc.math;
 
+import lombok.SneakyThrows;
 import org.jukeboxmc.block.Block;
 import org.jukeboxmc.world.Dimension;
 import org.jukeboxmc.world.World;
@@ -9,7 +10,7 @@ import org.jukeboxmc.world.chunk.Chunk;
  * @author LucGamesYT
  * @version 1.0
  */
-public class Location extends Vector {
+public class Location extends Vector implements Cloneable {
 
     private World world;
     private float yaw;
@@ -120,6 +121,18 @@ public class Location extends Vector {
         return new Vector( (float) x, (float) y, (float) z ).normalize();
     }
 
+    @Override
+    @SneakyThrows
+    public Location clone() {
+        Location clone = (Location) super.clone();
+        clone.world = this.world;
+        clone.x = this.x;
+        clone.y = this.y;
+        clone.z = this.z;
+        clone.yaw = this.yaw;
+        clone.pitch = this.pitch;
+        return clone;
+    }
 
     @Override
     public String toString() {

@@ -19,10 +19,10 @@ public class ItemPolarBearSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityPolarBear entityPolarBear = new EntityPolarBear();
-        entityPolarBear.setLocation( location );
+        entityPolarBear.setLocation( location.add( 0, entityPolarBear.getEyeHeight(), 0 ) );
         entityPolarBear.spawn();
 
         return true;

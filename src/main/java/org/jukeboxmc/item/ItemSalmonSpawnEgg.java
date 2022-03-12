@@ -19,10 +19,10 @@ public class ItemSalmonSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntitySalmon entitySalmon = new EntitySalmon();
-        entitySalmon.setLocation( location );
+        entitySalmon.setLocation( location.add( 0, entitySalmon.getEyeHeight(), 0 ) );
         entitySalmon.spawn();
 
         return true;

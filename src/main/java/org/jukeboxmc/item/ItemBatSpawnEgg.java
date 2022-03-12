@@ -19,10 +19,10 @@ public class ItemBatSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityBat entityBat = new EntityBat();
-        entityBat.setLocation( location );
+        entityBat.setLocation( location.add( 0, entityBat.getEyeHeight(), 0 ) );
         entityBat.spawn();
 
         return true;

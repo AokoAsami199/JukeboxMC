@@ -19,10 +19,10 @@ public class ItemWolfSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityWolf entityWolf = new EntityWolf();
-        entityWolf.setLocation( location );
+        entityWolf.setLocation( location.add( 0, entityWolf.getEyeHeight(), 0 ) );
         entityWolf.spawn();
 
         return true;

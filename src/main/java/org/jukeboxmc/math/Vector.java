@@ -1,5 +1,6 @@
 package org.jukeboxmc.math;
 
+import lombok.SneakyThrows;
 import lombok.ToString;
 import org.apache.commons.math3.util.FastMath;
 import org.jukeboxmc.world.Dimension;
@@ -11,7 +12,7 @@ import java.util.Objects;
  * @version 1.0
  */
 @ToString
-public class Vector {
+public class Vector implements Cloneable {
 
     protected float x;
     protected float y;
@@ -192,6 +193,16 @@ public class Vector {
 
         float f = ( z - this.z ) / zDiff;
         return ( f >= 0F && f <= 1F ) ? new Vector( this.x + xDiff * f, this.y + yDiff * f, this.z + zDiff * f, this.dimension ) : null;
+    }
+
+    @Override
+    @SneakyThrows
+    public Vector clone() {
+        Vector clone = (Vector) super.clone();
+        clone.x = this.x;
+        clone.y = this.y;
+        clone.z = this.z;
+        return clone;
     }
 
     @Override

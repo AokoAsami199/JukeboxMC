@@ -19,10 +19,10 @@ public class ItemCatSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityCat entityCat = new EntityCat();
-        entityCat.setLocation( location );
+        entityCat.setLocation( location.add( 0, entityCat.getEyeHeight(), 0 ) );
         entityCat.spawn();
 
         return true;

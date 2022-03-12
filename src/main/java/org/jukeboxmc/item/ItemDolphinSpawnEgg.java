@@ -19,10 +19,10 @@ public class ItemDolphinSpawnEgg extends Item {
 
     @Override
     public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation().add( 0, 1, 0 );
+        Location location = clickedBlock.getLocation();
 
         EntityDolphin entityDolphin = new EntityDolphin();
-        entityDolphin.setLocation( location );
+        entityDolphin.setLocation( location.add( 0, entityDolphin.getEyeHeight(), 0 ) );
         entityDolphin.spawn();
 
         return true;
