@@ -14,7 +14,7 @@ import org.jukeboxmc.player.Player;
 public class ItemCodSpawnEgg extends Item {
 
     public ItemCodSpawnEgg() {
-        super( "cod_spawn_egg" );
+        super( "minecraft:cod_spawn_egg" );
     }
 
     @Override
@@ -24,7 +24,6 @@ public class ItemCodSpawnEgg extends Item {
         EntityCod entityCod = new EntityCod();
         entityCod.setLocation( location );
         entityCod.spawn();
-
         return true;
     }
 }
