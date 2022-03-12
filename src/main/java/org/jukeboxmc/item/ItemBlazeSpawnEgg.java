@@ -1,14 +1,19 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.entity.EntityType;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemBlazeSpawnEgg extends Item {
+public class ItemBlazeSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemBlazeSpawnEgg() {
-        super ( "minecraft:blaze_spawn_egg" );
+        super( "minecraft:blaze_spawn_egg" );
     }
 
-
+    @Override
+    public EntityType getEntityType() {
+        return EntityType.BLAZE;
+    }
 }

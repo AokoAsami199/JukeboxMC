@@ -305,7 +305,7 @@ public abstract class Entity {
         EntitySpawnPacket entitySpawnPacket = new EntitySpawnPacket();
         entitySpawnPacket.setEntityId( this.entityId );
         entitySpawnPacket.setEntityType( this.getEntityType() );
-        entitySpawnPacket.setPosition( this.location.add( 0, this.getEyeHeight(), 0 ) );
+        entitySpawnPacket.setPosition( this.location );
         entitySpawnPacket.setVelocity( this.velocity );
         entitySpawnPacket.setYaw( this.location.getYaw() );
         entitySpawnPacket.setPitch( this.location.getPitch() );

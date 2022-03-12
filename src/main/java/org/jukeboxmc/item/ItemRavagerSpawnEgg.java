@@ -1,14 +1,19 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.entity.EntityType;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemRavagerSpawnEgg extends Item {
+public class ItemRavagerSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemRavagerSpawnEgg() {
-        super ( "minecraft:ravager_spawn_egg" );
+        super( "minecraft:ravager_spawn_egg" );
     }
 
-
+    @Override
+    public EntityType getEntityType() {
+        return EntityType.RAVAGER;
+    }
 }

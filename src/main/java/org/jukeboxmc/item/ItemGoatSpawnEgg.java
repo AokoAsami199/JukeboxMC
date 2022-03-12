@@ -1,30 +1,19 @@
 package org.jukeboxmc.item;
 
-import org.jukeboxmc.block.Block;
-import org.jukeboxmc.block.direction.BlockFace;
-import org.jukeboxmc.entity.passive.EntityGoat;
-import org.jukeboxmc.math.Location;
-import org.jukeboxmc.math.Vector;
-import org.jukeboxmc.player.Player;
+import org.jukeboxmc.entity.EntityType;
 
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemGoatSpawnEgg extends Item {
+public class ItemGoatSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemGoatSpawnEgg() {
         super( "minecraft:goat_spawn_egg" );
     }
 
     @Override
-    public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation();
-
-        EntityGoat entityGoat = new EntityGoat();
-        entityGoat.setLocation( location.add( 0, entityGoat.getEyeHeight(), 0 ) );
-        entityGoat.spawn();
-
-        return true;
+    public EntityType getEntityType() {
+        return EntityType.GOAT;
     }
 }

@@ -1,14 +1,19 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.entity.EntityType;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemWitchSpawnEgg extends Item {
+public class ItemWitchSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemWitchSpawnEgg() {
-        super ( "minecraft:witch_spawn_egg" );
+        super( "minecraft:witch_spawn_egg" );
     }
 
-
+    @Override
+    public EntityType getEntityType() {
+        return EntityType.WITCH;
+    }
 }

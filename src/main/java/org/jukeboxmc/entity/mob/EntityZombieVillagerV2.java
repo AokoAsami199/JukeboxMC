@@ -11,7 +11,7 @@ public class EntityZombieVillagerV2 extends EntityLiving {
 
     @Override
     public String getName() {
-        return "Zombie Villager V2";
+        return "Zombie Villager";
     }
 
     @Override

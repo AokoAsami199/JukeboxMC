@@ -1,30 +1,19 @@
 package org.jukeboxmc.item;
 
-import org.jukeboxmc.block.Block;
-import org.jukeboxmc.block.direction.BlockFace;
-import org.jukeboxmc.entity.passive.EntityPolarBear;
-import org.jukeboxmc.math.Location;
-import org.jukeboxmc.math.Vector;
-import org.jukeboxmc.player.Player;
+import org.jukeboxmc.entity.EntityType;
 
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemPolarBearSpawnEgg extends Item {
+public class ItemPolarBearSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemPolarBearSpawnEgg() {
         super( "minecraft:polar_bear_spawn_egg" );
     }
 
     @Override
-    public boolean interact( Player player, BlockFace blockFace, Vector clickedVector, Block clickedBlock ) {
-        Location location = clickedBlock.getLocation();
-
-        EntityPolarBear entityPolarBear = new EntityPolarBear();
-        entityPolarBear.setLocation( location.add( 0, entityPolarBear.getEyeHeight(), 0 ) );
-        entityPolarBear.spawn();
-
-        return true;
+    public EntityType getEntityType() {
+        return EntityType.POLAR_BEAR;
     }
 }

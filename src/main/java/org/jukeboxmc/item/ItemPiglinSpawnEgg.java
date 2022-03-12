@@ -1,14 +1,19 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.entity.EntityType;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemPiglinSpawnEgg extends Item {
+public class ItemPiglinSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemPiglinSpawnEgg() {
-        super ( "minecraft:piglin_spawn_egg" );
+        super( "minecraft:piglin_spawn_egg" );
     }
 
-
+    @Override
+    public EntityType getEntityType() {
+        return EntityType.PIGLIN;
+    }
 }

@@ -1,14 +1,19 @@
 package org.jukeboxmc.item;
 
+import org.jukeboxmc.entity.EntityType;
+
 /**
  * @author LucGamesYT
  * @version 1.0
  */
-public class ItemElderGuardianSpawnEgg extends Item {
+public class ItemElderGuardianSpawnEgg extends ItemGeneralSpawnEgg {
 
     public ItemElderGuardianSpawnEgg() {
-        super ( "minecraft:elder_guardian_spawn_egg" );
+        super( "minecraft:elder_guardian_spawn_egg" );
     }
 
-
+    @Override
+    public EntityType getEntityType() {
+        return EntityType.ELDER_GUARDIAN;
+    }
 }
